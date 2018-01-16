@@ -72,5 +72,69 @@ namespace MyWallet.Test
             // Assert   
             Assert.Equal(0, account.GetReceipts.Count);
         }
+
+        [Fact]
+        public void Add_Receipt_Increase_Account_Balance()
+        {
+            // Arrange
+            var account = new Account("Poupança", AccountType.Saving, 1000);
+            var newReceipt = new Receipt(ReceiptType.Salary, 4000.0M);
+
+            // Act 
+            account.AddReceipt(newReceipt);
+
+            // Assert   
+            Assert.Equal(5000.0M, account.Balance);
+        }
+
+        [Fact]
+        public void Add_Expense_Decrease_Account_Balance()
+        {
+            // Arrange
+            var account = new Account("Poupança", AccountType.Saving, 1000);
+            var newExpense = new Expense("Camiseta", ExpenseType.Purchase, 150.0M);
+
+            // Act 
+            account.AddExpense(newExpense);
+
+            // Assert   
+            Assert.Equal(850.0M, account.Balance);
+        }
+
+        [Fact]
+        public void Withdraw_Value_From_Balance()
+        {
+            // Arrange
+            var accountOne = new Account("Poupança", AccountType.Saving, 5000);
+
+            // Act
+            accountOne.Withdraw(2000);
+
+            // Assert
+            Assert.Equal(3000.0M, accountOne.Balance);
+        }
+
+        [Fact]
+        public void Deposit_Value_In_Balance()
+        {
+            // Arrange
+            var accountTwo = new Account("Corrent", AccountType.Checking, 1000);
+
+            // Act
+            accountTwo.Deposit(2000);
+
+            // Assert
+            Assert.Equal(3000.0M, accountTwo.Balance);
+        }
+
+        [Fact]
+        public void Cannot_Withdraw_Bigger_Value_Than_Value_In_Balance()
+        {
+            // Arrange
+            var accountOne = new Account("Poupança", AccountType.Saving, 5000);
+
+            // Act & Assert
+            Assert.Throws<InvalidOperationException>(() => accountOne.Withdraw(6000));
+        }
     }
 }

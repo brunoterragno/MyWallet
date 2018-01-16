@@ -19,6 +19,8 @@ namespace MyWallet.Test
     public List<Expense> GetExpenses { get { return Expenses.Clone(); } }
     private List<Receipt> Receipts { get; set; }
     public List<Receipt> GetReceipts { get { return Receipts.Clone(); } }
+    private List<Transfer> Transfers { get; set; }
+    public List<Transfer> GetTransfers { get { return Transfers.Clone(); } }
 
     public Account(string name, AccountType type, decimal initialBalance = 0)
     {
@@ -27,6 +29,7 @@ namespace MyWallet.Test
       this.Balance = initialBalance;
       this.Expenses = new List<Expense>();
       this.Receipts = new List<Receipt>();
+      this.Transfers = new List<Transfer>();
     }
 
     public void ChangeName(string newName)
@@ -41,12 +44,32 @@ namespace MyWallet.Test
 
     public void AddExpense(Expense newExpense)
     {
+      Balance -= newExpense.Value;
       this.Expenses.Add(newExpense);
     }
 
     public void AddReceipt(Receipt newReceipt)
     {
+      Balance += newReceipt.Value;
       this.Receipts.Add(newReceipt);
+    }
+
+    public void AddTransfer(Transfer newTransfer)
+    {
+      this.Transfers.Add(newTransfer);
+    }
+
+    public void Withdraw(decimal value)
+    {
+      if (Balance < value)
+        throw new InvalidOperationException("Not enough money to withdraw");
+
+      Balance -= value;
+    }
+
+    public void Deposit(decimal value)
+    {
+      Balance += value;
     }
   }
 }
