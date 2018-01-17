@@ -61,6 +61,9 @@ namespace MyWallet.Test
 
     public void Withdraw(decimal value)
     {
+      if (value.IsNegative())
+        throw new InvalidOperationException("Value should be positive");
+
       if (Balance < value)
         throw new InvalidOperationException("Not enough money to withdraw");
 
@@ -69,6 +72,9 @@ namespace MyWallet.Test
 
     public void Deposit(decimal value)
     {
+      if (value.IsNegative())
+        throw new InvalidOperationException("Value should be positive");
+
       Balance += value;
     }
   }

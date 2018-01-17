@@ -128,6 +128,26 @@ namespace MyWallet.Test
         }
 
         [Fact]
+        public void Cannot_Withdraw_Negative_Value_From_Balance()
+        {
+            // Arrange
+            var accountOne = new Account("Poupança", AccountType.Saving, 5000);
+
+            // Act & Assert
+            Assert.Throws<InvalidOperationException>(() => accountOne.Withdraw(-2000));
+        }
+
+        [Fact]
+        public void Cannot_Deposit_Negative_Value_In_Balance()
+        {
+            // Arrange
+            var accountTwo = new Account("Corrent", AccountType.Checking, 1000);
+
+            // Act & Assert
+            Assert.Throws<InvalidOperationException>(() => accountTwo.Deposit(-2000));
+        }
+
+        [Fact]
         public void Cannot_Withdraw_Bigger_Value_Than_Value_In_Balance()
         {
             // Arrange
