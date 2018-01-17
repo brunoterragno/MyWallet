@@ -17,9 +17,9 @@ namespace MyWallet.Test
 
     public Receipt(ReceiptType type, decimal value, DateTime? date = null)
     {
-      this.Type = type;
-      this.Value = value;
-      this.Date = date.HasValue ? date.Value : DateTime.Now;
+      Type = type;
+      Value = value;
+      Date = date.HasValue ? date.Value : DateTime.Now;
     }
   }
 }

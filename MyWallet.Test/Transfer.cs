@@ -8,9 +8,9 @@ namespace MyWallet.Test
 
     public Transfer(Account accountToWithdraw, Account accountToDeposit, decimal value)
     {
-      this.AccountToWithdraw = accountToWithdraw;
-      this.AccountToDeposit = accountToDeposit;
-      this.Value = value;
+      AccountToWithdraw = accountToWithdraw;
+      AccountToDeposit = accountToDeposit;
+      Value = value;
 
       DoTransfer();
     }

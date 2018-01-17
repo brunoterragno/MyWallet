@@ -19,10 +19,10 @@ namespace MyWallet.Test
 
     public Expense(string title, ExpenseType type, decimal value, DateTime? date = null)
     {
-      this.Title = title;
-      this.Type = type;
-      this.Value = value;
-      this.Date = date.HasValue ? date.Value : DateTime.Now;
+      Title = title;
+      Type = type;
+      Value = value;
+      Date = date.HasValue ? date.Value : DateTime.Now;
     }
   }
 }
