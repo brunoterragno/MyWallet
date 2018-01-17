@@ -22,7 +22,7 @@ namespace MyWallet.Test
         {
             // Arrange
             var account = new Account("Poupança", AccountType.Saving);
-            var newExpense = new Expense("Camiseta", ExpenseType.Purchase, 100.0M);
+            var newExpense = new Expense("Camiseta", ExpenseType.Purchase, 100);
 
             // Act 
             account.AddExpense(newExpense);
@@ -36,7 +36,7 @@ namespace MyWallet.Test
         {
             // Arrange
             var account = new Account("Poupança", AccountType.Saving);
-            var newExpense = new Expense("Camiseta", ExpenseType.Purchase, 100.0M);
+            var newExpense = new Expense("Camiseta", ExpenseType.Purchase, 100);
 
             // Act 
             account.GetExpenses.Add(newExpense);
@@ -50,7 +50,7 @@ namespace MyWallet.Test
         {
             // Arrange
             var account = new Account("Poupança", AccountType.Saving);
-            var newReceipt = new Receipt(ReceiptType.Salary, 4000.0M);
+            var newReceipt = new Receipt(ReceiptType.Salary, 4000);
 
             // Act 
             account.AddReceipt(newReceipt);
@@ -64,7 +64,7 @@ namespace MyWallet.Test
         {
             // Arrange
             var account = new Account("Poupança", AccountType.Saving);
-            var newReceipt = new Receipt(ReceiptType.Salary, 4000.0M);
+            var newReceipt = new Receipt(ReceiptType.Salary, 4000);
 
             // Act 
             account.GetReceipts.Add(newReceipt);
@@ -78,13 +78,13 @@ namespace MyWallet.Test
         {
             // Arrange
             var account = new Account("Poupança", AccountType.Saving, 1000);
-            var newReceipt = new Receipt(ReceiptType.Salary, 4000.0M);
+            var newReceipt = new Receipt(ReceiptType.Salary, 4000);
 
             // Act 
             account.AddReceipt(newReceipt);
 
             // Assert   
-            Assert.Equal(5000.0M, account.Balance);
+            Assert.Equal(5000, account.Balance);
         }
 
         [Fact]
@@ -92,13 +92,13 @@ namespace MyWallet.Test
         {
             // Arrange
             var account = new Account("Poupança", AccountType.Saving, 1000);
-            var newExpense = new Expense("Camiseta", ExpenseType.Purchase, 150.0M);
+            var newExpense = new Expense("Camiseta", ExpenseType.Purchase, 150);
 
             // Act 
             account.AddExpense(newExpense);
 
             // Assert   
-            Assert.Equal(850.0M, account.Balance);
+            Assert.Equal(850, account.Balance);
         }
 
         [Fact]
@@ -111,7 +111,7 @@ namespace MyWallet.Test
             accountOne.Withdraw(2000);
 
             // Assert
-            Assert.Equal(3000.0M, accountOne.Balance);
+            Assert.Equal(3000, accountOne.Balance);
         }
 
         [Fact]
@@ -124,7 +124,7 @@ namespace MyWallet.Test
             accountTwo.Deposit(2000);
 
             // Assert
-            Assert.Equal(3000.0M, accountTwo.Balance);
+            Assert.Equal(3000, accountTwo.Balance);
         }
 
         [Fact]
