@@ -1,4 +1,4 @@
-namespace MyWallet.Test
+namespace MyWallet.Test.Models
 {
   public class Transfer
   {

@@ -1,6 +1,6 @@
 using System;
 
-namespace MyWallet.Test
+namespace MyWallet.Test.Models
 {
   public enum ReceiptType
   {

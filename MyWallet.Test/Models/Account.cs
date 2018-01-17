@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MyWallet.Test
+namespace MyWallet.Test.Models
 {
   public enum AccountType
   {

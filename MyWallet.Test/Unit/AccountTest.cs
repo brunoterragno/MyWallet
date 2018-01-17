@@ -1,7 +1,8 @@
 using System;
+using MyWallet.Test.Models;
 using Xunit;
 
-namespace MyWallet.Test
+namespace MyWallet.Test.Unit
 {
   public class AccountTest
   {
