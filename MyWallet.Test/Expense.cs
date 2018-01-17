@@ -4,7 +4,10 @@ namespace MyWallet.Test
 {
   public enum ExpenseType
   {
-    Purchase
+    Purchase,
+    House,
+    Market,
+    Leisure
   }
 
   public class Expense

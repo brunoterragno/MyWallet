@@ -4,7 +4,9 @@ namespace MyWallet.Test
 {
   public enum ReceiptType
   {
-    Salary
+    Salary,
+    Reward,
+    Investment
   }
 
   public class Receipt
