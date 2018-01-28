@@ -1,15 +1,14 @@
 MyWallet
 
-Usuário
+User has
 
-* Contas
-
-  * Nome
-  * Saldo
-  * Tipo
-  * Gastos
-    * Titulo, Data, Valor, Tipo
-  * Recebimentos
-    * Data, Valor, Tipo
-  * Transferências
-    * Conta de retirada, Conta de recebimento, valor
+* Accounts
+  * Name
+  * Balance
+  * Type
+  * Expenses
+    * Title, Date, Value, Type
+  * Receipts
+    * Date, Value, Type
+  * Trasfers
+    * Account to withdraw, Account to deposit, value, date

@@ -1,3 +1,5 @@
+using System;
+
 namespace MyWallet.Test.Models
 {
   public class Transfer
@@ -5,13 +7,14 @@ namespace MyWallet.Test.Models
     public Account AccountToWithdraw { get; private set; }
     public Account AccountToDeposit { get; private set; }
     public decimal Value { get; private set; }
+    public DateTime Date { get; private set; }
 
     public Transfer(Account accountToWithdraw, Account accountToDeposit, decimal value)
     {
       AccountToWithdraw = accountToWithdraw;
       AccountToDeposit = accountToDeposit;
       Value = value;
-
+      Date = DateTime.Now;
       DoTransfer();
     }
 
